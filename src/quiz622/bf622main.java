@@ -3,11 +3,11 @@ package quiz622;
 import static prt.ObjectPrint.*;
 import java.util.*;
 
-public class bf620main {
+public class bf622main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        bf620func bf = new bf620func();
+        bf622func bf = new bf622func();
         int cmd = 0;
         boolean flag = true;
 

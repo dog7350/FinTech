@@ -3,7 +3,7 @@ package quiz622;
 import static prt.ObjectPrint.*;
 import java.util.*;
 
-public class bf620func {
+public class bf622func {
     public String name, grade;
     public int kor, eng, math, sum;
     public double avg;

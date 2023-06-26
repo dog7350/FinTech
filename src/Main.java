@@ -10,7 +10,7 @@ public class Main extends ObjectPrint {
             객체, Class, Method, Single Tone, Thread.sleep, currentTimeMillis, SimpleDateFormat, Date     */
         Scanner sc = new Scanner(System.in);
 
-        o.prt("내용");
+
 
     }
 }

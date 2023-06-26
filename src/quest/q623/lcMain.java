@@ -1,4 +1,4 @@
-package quest;
+package quest.q623;
 
 import java.util.*;
 
@@ -30,11 +30,11 @@ import java.util.*;
             파일은 Main.Class, Student.Class, Module.Class를 필요로 합니다.
         */
 
-public class quest623LcMain {
+public class lcMain {
     public static void main (String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        quest623LcModule module = new quest623LcModule();
+        lcModule module = new lcModule();
 
         boolean flag = true;
         String cmd;

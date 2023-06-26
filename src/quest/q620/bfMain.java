@@ -1,9 +1,9 @@
-package quest;
+package quest.q620;
 
 import static prt.ObjectPrint.*;
 import java.util.*;
 
-public class quest620BF {
+public class bfMain {
     public void bf620() {
         Scanner sc = new Scanner(System.in);
 

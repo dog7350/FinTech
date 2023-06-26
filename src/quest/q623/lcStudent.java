@@ -1,6 +1,6 @@
-package quest;
+package quest.q623;
 
-public class quest623LcStudent {
+public class lcStudent {
     private String name, addr, id, pw;
     private int kor, eng, math, sum;
     private float avg;

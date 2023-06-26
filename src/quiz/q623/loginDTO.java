@@ -1,9 +1,9 @@
-package quiz623;
+package quiz.q623;
 
-public class bf623loginDTO {
+public class loginDTO {
     private String id, pwd;
 
-    bf623loginDTO() {
+    loginDTO() {
         setId(null);
         setPwd(null);
     }

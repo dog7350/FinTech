@@ -1,13 +1,13 @@
-package quiz622;
+package quiz.q622;
 
 import static prt.ObjectPrint.*;
 import java.util.*;
 
-public class bf622main {
+public class main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        bf622func bf = new bf622func();
+        func bf = new func();
         int cmd = 0;
         boolean flag = true;
 

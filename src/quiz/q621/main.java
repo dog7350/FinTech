@@ -1,9 +1,9 @@
-package quiz621;
+package quiz.q621;
 
 import static prt.ObjectPrint.*;
 import java.util.*;
 
-public class quiz621 {
+public class main {
     public static void main (String[] args) {
 
         Scanner sc = new Scanner(System.in);

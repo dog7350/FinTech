@@ -1,11 +1,11 @@
-package quiz623;
+package quiz.q623;
 
 import java.util.*;
 
-public class bf623loginService {
+public class loginService {
     Scanner sc = new Scanner(System.in);
 
-    bf623loginDTO dto = new bf623loginDTO();
+    loginDTO dto = new loginDTO();
     int cmd = 0;
     String id, pw;
     boolean flag = true;

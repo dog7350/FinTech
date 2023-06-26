@@ -1,9 +1,9 @@
-package quiz622;
+package quiz.q622;
 
 import static prt.ObjectPrint.*;
 import java.util.*;
 
-public class bf622func {
+public class func {
     public String name, grade;
     public int kor, eng, math, sum;
     public double avg;

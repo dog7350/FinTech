@@ -1,11 +1,11 @@
-package quest;
+package quest.q623;
 
 import java.util.*;
 
-public class quest623LcModule {
+public class lcModule {
     Scanner sc = new Scanner(System.in);
 
-    ArrayList<quest623LcStudent> students = new ArrayList<>();
+    ArrayList<lcStudent> students = new ArrayList<>();
 
     private int cnt = -1;
     public void setCnt(int cnt) { this.cnt = cnt; }
@@ -16,7 +16,7 @@ public class quest623LcModule {
             return;
         }
         for (int i = 0; i < cnt; i++) {
-            quest623LcStudent stu = new quest623LcStudent();
+            lcStudent stu = new lcStudent();
             ist(stu);
             students.add(stu);
             System.out.print(stu.getName() + " 학생의 정보가 입력되었습니다.\n");
@@ -87,7 +87,7 @@ public class quest623LcModule {
         }
     }
 
-    private void ist(quest623LcStudent s) {
+    private void ist(lcStudent s) {
         System.out.print("\n학생 이름 : ");
         s.setName(sc.next());
         System.out.print("\n학생 주소 : ");
@@ -106,7 +106,7 @@ public class quest623LcModule {
         s.setAvg(s.getSum() / 3);
     }
 
-    private void prt(quest623LcStudent s) {
+    private void prt(lcStudent s) {
         System.out.println("\n학생 이름 : " + s.getName());
         System.out.println("\n학생 주소 : " + s.getAddr());
         System.out.println("\n학생 ID : " + s.getId());

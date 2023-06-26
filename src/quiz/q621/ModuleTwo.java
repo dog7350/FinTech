@@ -1,4 +1,4 @@
-package quiz621;
+package quiz.q621;
 
 import static prt.ObjectPrint.*;
 import java.util.*;

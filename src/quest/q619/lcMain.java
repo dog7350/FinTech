@@ -1,8 +1,8 @@
-package quest;
+package quest.q619;
 
 import java.util.*;
 
-public class quest619LC {
+public class lcMain {
     public void lc619() {
         /*
             사용자에게 명령어를 입력받아 처리하는 프로그램을 작성하세요.

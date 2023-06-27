@@ -30,10 +30,7 @@ public class lcJavaFx extends Thread {
             frame.setVisible(true);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            for (int i = 0;; i++) {
-                if (flag == false) break;
-                label.setText(service.form.format(new Date().getTime()));
-            }
+            while (flag) label.setText(service.form.format(new Date().getTime()));
         }
 
         label.setText(new SimpleDateFormat("m분 s초 사용함!!").format(service.login.getTotal()));

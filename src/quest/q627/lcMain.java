@@ -1,4 +1,4 @@
-package quest.q626;
+package quest.q627;
 
 /*
 회사 (회사명, 부서명, 직급[사장, 부장, 차장, 과장, 사원])
@@ -26,8 +26,27 @@ package quest.q626;
 출퇴근 시간의 입력은 사원 번호를 입력받아 개인별로 적용합니다.
 근무 시간 미달로 인한 급여 삭감이 적용될 경우 급여는 0보다 작을 수 없습니다.
 */
+
+import java.util.*;
+
 public class lcMain {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        lcService service = new lcService();
 
+        int cmd;
+        boolean flag = true;
+
+        while (flag) {
+            System.out.print("\n명령어 입력 >> ");
+            cmd = sc.nextInt();
+
+            service.test();
+            /*
+            switch (cmd) {
+
+            }
+            */
+        }
     }
 }

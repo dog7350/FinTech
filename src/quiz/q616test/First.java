@@ -1,3 +1,5 @@
+package quiz.q616test;
+
 import prt.ObjectPrint;
 
 import java.util.*;

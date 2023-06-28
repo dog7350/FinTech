@@ -1,6 +1,4 @@
-package quiz.q627;
-
-import quiz.q627.lcLogin;
+package quiz.q627_628;
 
 import java.text.*;
 import java.util.*;

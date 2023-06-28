@@ -1,6 +1,5 @@
-package quiz.q627;
+package quiz.q627_628;
 
-import quiz.q627.lcService;
 import java.util.*;
 
 public class lcMain {
@@ -8,6 +7,7 @@ public class lcMain {
         Scanner sc = new Scanner(System.in);
         lcService service = lcService.getInstance();
         lcJavaFx fx = new lcJavaFx();
+        lcMemberServiceImpl member = lcMemberServiceImpl.getInstance();
 
         int cmd;
         boolean flag = true;
@@ -23,12 +23,14 @@ public class lcMain {
                         service.startTime();
                         service.startStatus();
                         fx.start();
+                        member.memberAdmin();
                     }
                     break;
                 case 2 :
                     service.join();
                     break;
                 case 3 :
+                    member.deleteMember();
                     service.exit();
                     break;
                 case 4 :

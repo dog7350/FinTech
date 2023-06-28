@@ -1,4 +1,4 @@
-package quiz.q627;
+package quiz.q627_628;
 
 public class lcTime {
     private long start, end, total;

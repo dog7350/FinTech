@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <form action="..\q713\Company Info.html" method="post" style="width: 500px;">
+        <div>
+            <img style="float: right; display: inline; width: 150px; height: 100px" src="..\..\resources\images/test1.jpg" alt="이미지" />
+            다음 <span style="background-color: orange; font-weight: bold;">내용에 맞게 입력</span> 하시오.<br>
+            전공 분야를 입력하세요.
+            <select>
+                <option value="soft" selected>소프트웨어</option>
+                <option value="com">컴퓨터공학</option>
+                <option value="info">정보통신</option>
+            </select><br>
+            이름 <input type="text" /> <br>
+            아이디 <input type="text" /> <br>
+            비밀번호 <input type="password" /> <br>
+        </div>
+        <fieldset>
+            <legend>성별 조사</legend>
+            여성<input type="radio" name="sex" value="female">
+            남성<input type="radio" name="sex" value="male">
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>취미 조사</legend>
+            책읽기<input type="checkbox" name="favo" value="book">
+            공부하기<input type="checkbox" name="favo" value="study">
+            책 읽으며 공부하기<input type="checkbox" name="favo" value="all">
+            컴퓨터<input type="checkbox" name="favo" value="com">
+        </fieldset>
+        <fieldset>
+            <legend>하고 싶은 말</legend>
+            <textarea cols=63" rows="5"></textarea>
+        </fieldset>
+        <input type="submit" value="완료" />
+        <input type="reset" value="다시작성" />
+    </form>
+</section>
+</body>
+</html>

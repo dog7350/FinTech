@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #wrap {
+            display: flex; width: 50%; height: 200px;
+            margin: auto; border: 4px solid black;
+            text-align: center;
+        }
+        #wrap div {width: 33.3333%;}
+        .cl01 {order: 1; background: red;}
+        .cl02 {order: 2; display: flex; background: green;}
+        .cl03 {order: 3; background: aqua;}
+        h1 {width: 50%;}
+        .h01 {display:flex; flex-flow:row; background: lime;}
+        .h02 {display:flex; background: gray;}
+    </style>
+</head>
+<body>
+  <div id="wrap">
+      <div class="cl01"><h1>1</h1></div>
+
+      <div class="cl02">
+          <h1 class="h01">
+              <p>11</p>
+              <p>11</p>
+          </h1>
+          <h1 class="h02">
+              <p>22</p>
+              <p>22</p>
+          </h1>
+      </div>
+
+      <div class="cl03"><h1>3</h1></div>
+  </div>
+</body>
+</html>

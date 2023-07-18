@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q-03</title>
+
+    <style>
+        #Container {
+            width: 100%;
+            height: 700px;
+            background: olive;
+            border: 2px solid black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 50pt;
+        }
+        #HDIV {
+            width: 100%;
+            height: 25%;
+        }
+        #HC {
+            width: 100%;
+            height: 50%;
+            background: red;
+            border-bottom: 5px solid black;
+            text-align: center;
+        }
+        #NC {
+            width: 100%;
+            height: 50%;
+            background: gold;
+            border-right: 2px solid black;
+        }
+        #Content {
+            display: flex;
+            width: 100%;
+            height: 50%;
+            border-bottom: 5px solid black;
+        }
+        .AT {
+            align-content: center;
+            width: 100%;
+            font-size: 15pt;
+            font-weight: normal;
+        }
+        .AT * {
+            margin: 10px;
+        }
+        #SC {
+            width: 70%;
+            height: 100%;
+            background: green;
+        }
+        #AC {
+            width: 30%;
+            height: 100%;
+            background: yellow;
+        }
+        #FC {
+            width: 100%;
+            height: 25%;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="Container">
+    <div id="HDIV">
+        <header id="HC">
+            <div>
+                HEADER
+            </div>
+        </header>
+        <nav id="NC">
+            NAV
+        </nav>
+    </div>
+
+    <div id="Content">
+        <section id="SC">
+            SECTION
+            <article class="AT">
+                <div style="background: aqua; border: 3px solid black;">header</div>
+                <div style="background: gold; border: 3px solid black;">article</div>
+                <div style="background: hotpink; border: 3px solid black;">footer</div>
+            </article>
+        </section>
+
+        <aside id="AC">
+            ASIDE
+        </aside>
+    </div>
+
+    <footer id="FC">
+        <div>
+            FOOTER
+        </div>
+    </footer>
+</div>
+</body>
+</html>

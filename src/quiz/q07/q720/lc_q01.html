@@ -12,13 +12,10 @@
             const view = document.querySelector("#viewTable");
             msg = "<table border='1'>";
             msg += "<tr><th>아이디</th><th>이름</th><th>나이</th></tr>";
-            if (member.length <= 0) {
-                msg += "<tr><td colspan='3'>회원이 음슴체</td></tr>";
-            } else {
-                for (const user of member) {
-                    msg += `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.age}</td></tr>`;
-                }
-            }
+
+            if (member.length <= 0) msg += "<tr><td colspan='3'>회원이 음슴체</td></tr>";
+            else for (const user of member) msg += `<tr><td>${user.id}</td><td onclick="memberInfo(this)" >${user.name}</td><td>${user.age}</td></tr>`;
+
             msg += "</table>";
             view.innerHTML = msg;
         }
@@ -27,14 +24,12 @@
             const view = document.querySelector("#viewTable");
             msg = "<table border='1'>";
             msg += "<tr><th>아이디</th><th>이름</th><th>나이</th></tr>";
-            if (member.length <= 0) {
-                msg += "<tr><td colspan='3'>회원이 음슴체</td></tr>";
-            } else {
+            if (member.length <= 0) msg += "<tr><td colspan='3'>회원이 음슴체</td></tr>";
+            else {
                 const id = document.querySelector("#searchId");
                 const user = member.filter( (value) => id.value == value.id );
-                if (user != undefined) {
-                    msg += `<tr><td>${user[0].id}</td><td>${user[0].name}</td><td>${user[0].age}</td></tr>`;
-                }
+
+                if (user != undefined) msg += `<tr><td>${user[0].id}</td><td>${user[0].name}</td><td>${user[0].age}</td></tr>`;
                 id.value = "";
             }
             msg += "</table>";
@@ -57,6 +52,13 @@
             name.value = "";
             age.value = "";
             memberAll();
+        }
+
+        const memberInfo = (str) => {
+            const view = document.querySelector("#viewTable");
+            const user = member.filter( (value) => str.innerText == value.name );
+            msg = `<b>아이디</b> : ${user[0].id}<br><b>이름</b> : ${user[0].name}<br><b>나이</b> : ${user[0].age}`;
+            view.innerHTML = msg;
         }
     </script>
 </head>

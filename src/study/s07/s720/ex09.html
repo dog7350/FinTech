@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    const data = [111, 222, 333];
+
+    function mapArr (value) {
+        return `<b style="color:red;">${value}</b><br>`;
+    }
+
+    const result = data.map(mapArr);
+    document.write(result);
+
+    document.write("<hr>");
+    /*
+    const result02 = data.map( (value) => {
+        return value + 1000;
+    } );
+    */
+    const result02 = data.map( (value) => value + 1000 );
+    document.write(result02);
+
+    document.write("<hr>");
+    data.forEach( (value, index) => {
+        data[index] = value + 1000;
+    } );
+    document.write(data);
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        const images = ["..\\..\\..\\resources\\images\\최근상품01.jpg", "..\\..\\..\\resources\\images\\최근상품02.jpg"];
+
+        // window.onload 생략
+        onload = () => {
+            const test = document.getElementById("test");
+            msg = "";
+
+            for (var i = 0; i < images.length; i++) {
+                msg += `<img src="${images[i]}" id="${i}" class="img">`;
+                test.innerHTML = msg;
+            }
+        }
+
+        const aaa = () => {
+            msg = "구라구라";
+
+            const test = document.getElementById("test");
+            test.innerHTML = msg;
+        }
+    </script>
+</head>
+<body>
+<!--<body onload="aaa()">-->
+    <div id="test">ㅋㅋㅋㅋ</div>
+</body>
+</html>

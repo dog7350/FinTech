@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    var kdata  = ['서울', '부산'];
+    document.write("기본 배열 : " + kdata + "<hr>");
+    kdata.push('인천', '광주');
+    document.write(`push : ${kdata}<br>`);
+    kdata.pop();
+    document.write(`pop : ${kdata}<br>`);
+
+    document.write("<hr>");
+    kdata.unshift("한국", "중국");
+    document.write(`shift : ${kdata}<br>`);
+
+    var test = [111, 222];
+    var d = kdata.concat(test);
+    document.write(`concat : ${d}<br>`);
+  </script>
+</body>
+</html>

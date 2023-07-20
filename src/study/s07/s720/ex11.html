@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    var DB = [
+        {id : 'aaa', name : '홍길동', age : 20},
+        {id : 'bbb', name : '임꺽정', age : 25},
+        {id : 'ccc', name : '일지매', age : 17}
+    ];
+
+    window.onload = () => {
+        const test = document.querySelector(".test");
+        const tb = document.querySelector("#tb");
+        let msg = `아이디 : ${DB[0]}.id<br>`;
+        msg += `이름 : ${DB[0].name}<br>`;
+        msg += `나이 : ${DB[0].age}<br>`;
+        test.innerHTML = msg;
+    }
+
+    const member = () => {
+        const tb = document.querySelector("#tb");
+        let msg = "";
+        for (const user of DB) {
+            msg += `아이디 : ${user.id}<br>`;
+            msg += `이름 : ${user.name}<br>`;
+            msg += `나이 : ${user.age}<br>`;
+        }
+        tb.innerHTML = msg;
+    }
+
+    const memberInfo = () => {
+        const id = document.querySelector("#id");
+        /*
+        const result = DB.filter( (value) => {
+            return id.value == value.id;
+        } );
+        const result = DB.filter( (value) => {
+            if (id.value == value.id) {
+                return value;
+            }
+        } );
+         */
+        const result = DB.filter( (value) => id.value == value.id );
+        console.log(result[0]);
+        console.log(result.length);
+    }
+  </script>
+
+  <div id="info"></div>
+  <input type="text" id="id">
+  <input type="button" onclick="memberInfo()" value="검색">
+  <hr>
+
+  <div class="test"></div>
+  <hr>
+  <div id="tb"></div>
+
+  <button type="button" onclick="member()">클릭</button>
+</body>
+</html>

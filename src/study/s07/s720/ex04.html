@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        img {width: 100px; height: 100px;}
+    </style>
+
+    <script>
+        var flag = true;
+        const chimg01 = () => {
+            let img = document.getElementById("img01");
+            let msg = '';
+
+            if (flag) {
+                msg = "..\\..\\..\\resources\\images\\car02.png";
+            } else {
+                msg = "..\\..\\..\\resources\\images\\car01.png";
+            }
+
+            flag = !flag;
+            img.src = msg;
+        }
+
+        const chimg02 = () => {
+            let h = document.getElementById('h');
+            h.style.color = 'red';
+        }
+    </script>
+</head>
+<body>
+    <img id="img01" src="..\..\..\resources\images\car01.png" onclick="chimg01()"><br>
+    <img id="img02" src="..\..\..\resources\images\car02.png" onclick="chimg02()"><br>
+    <h3 id="h">test</h3>
+</body>
+</html>

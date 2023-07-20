@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const city = ['서울', '부산', '인천'];
+        document.write(city);
+        city[3] = '대구';
+        document.write("<hr>" + city);
+        document.write("<hr> city type : " + typeof city);
+
+        const join01 = city.join();
+        const join02 = city.join(' - ');
+        document.write("<hr> join01 : " + typeof join01);
+        document.write("<hr> join01 : " + join01);
+        document.write("<hr> join02 : " + typeof join02);
+        document.write("<hr> join02 : " + join02);
+    </script>
+</body>
+</html>

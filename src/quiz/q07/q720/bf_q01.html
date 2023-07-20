@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #img {width: 100px; height: 100px;}
+    </style>
+
+    <script>
+        var num = 1; var mar = 10; var su = 30;
+        var size = window.screen.width - 110;
+
+        window.onload(setInterval(function () {
+            let img = document.getElementById('img');
+            num++;
+            if (num > 9) num = 1;
+
+            if (su > 0) img.style.transform = `scale(1, 1)`;
+            else img.style.transform = `scale(-1, 1)`;
+
+
+            img.src = "..\\..\\..\\resources\\images\\p" + num + ".png";
+
+            mar += su;
+            img.style.marginLeft = mar + "px";
+            if (parseInt(img.style.marginLeft.split("px")[0]) >= size || parseInt(img.style.marginLeft.split("px")[0]) <= 0) su *= -1;
+        }, 100));
+    </script>
+</head>
+<body>
+    <div>
+        <img id="img" src="..\..\..\resources\images\p1.png">
+        <!--<input type="button" value="이전" onclick="" />
+        <input type="button" value="다음" onclick="" />-->
+    </div>
+</body>
+</html>

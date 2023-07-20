@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        let member = [  ];
+        let msg;
+
+        const memberAll = () => {
+            const view = document.querySelector("#viewTable");
+            msg = "<table border='1'>";
+            msg += "<tr><th>아이디</th><th>이름</th><th>나이</th></tr>";
+            if (member.length <= 0) {
+                msg += "<tr><td colspan='3'>회원이 음슴체</td></tr>";
+            } else {
+                for (const user of member) {
+                    msg += `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.age}</td></tr>`;
+                }
+            }
+            msg += "</table>";
+            view.innerHTML = msg;
+        }
+
+        const memberSearch = () => {
+            const view = document.querySelector("#viewTable");
+            msg = "<table border='1'>";
+            msg += "<tr><th>아이디</th><th>이름</th><th>나이</th></tr>";
+            if (member.length <= 0) {
+                msg += "<tr><td colspan='3'>회원이 음슴체</td></tr>";
+            } else {
+                const id = document.querySelector("#searchId");
+                const user = member.filter( (value) => id.value == value.id );
+                if (user != undefined) {
+                    msg += `<tr><td>${user[0].id}</td><td>${user[0].name}</td><td>${user[0].age}</td></tr>`;
+                }
+            }
+            msg += "</table>";
+            view.innerHTML = msg;
+        }
+
+        const memberDelete = () => {
+            const id = document.querySelector("#deleteId");
+            member = member.filter( (value) => id.value != value.id );
+            memberAll();
+        }
+
+        const memberInsert = () => {
+            const id = document.querySelector("#insertId");
+            const name = document.querySelector("#insertName");
+            const age = document.querySelector("#insertAge");
+            member.push({"id":id.value, "name": name.value, "age":age.value});
+            memberAll();
+        }
+    </script>
+</head>
+<body>
+    <div id="runner">
+        <script>
+            var num = 1; var mar = 10; var su = 30;
+            var size = window.screen.width - 110;
+
+            window.onload(setInterval(function () {
+                let img = document.getElementById('img');
+                num++;
+                if (num > 9) num = 1;
+
+                if (su > 0) img.style.transform = `scale(1, 1)`;
+                else img.style.transform = `scale(-1, 1)`;
+
+
+                img.src = "..\\..\\..\\resources\\images\\p" + num + ".png";
+
+                mar += su;
+                img.style.marginLeft = mar + "px";
+                if (parseInt(img.style.marginLeft.split("px")[0]) >= size || parseInt(img.style.marginLeft.split("px")[0]) <= 0) su *= -1;
+            }, 100));
+        </script>
+        <img id="img" src="..\..\..\resources\images\p1.png" style="width: 100px; height: 100px;">
+    </div>
+
+    <div id="viewTable"></div>
+    <hr>
+    <input type="button" value="모든 회원 보기" onclick="memberAll()">
+    <hr>
+    <input type="text" id="searchId" placeholder="ID">
+    <input type="button" value="특정 회원 조회" onclick="memberSearch()">
+    <hr>
+    <input type="text" id="deleteId" placeholder="ID">
+    <input type="button" value="특정 회원 삭제" onclick="memberDelete()">
+    <hr>
+    <input type="text" id="insertId" placeholder="ID">
+    <input type="text" id="insertName" placeholder="NAME">
+    <input type="text" id="insertAge" placeholder="AGE">
+    <input type="button" value="회원 정보 삽입" onclick="memberInsert()">
+</body>
+</html>

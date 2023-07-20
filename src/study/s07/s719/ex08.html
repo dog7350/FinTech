@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+      function test() {
+          console.log("일반 함수");
+      }
+      const test2 = () => console.log("애로우 함수");
+
+      const test3 = () => {
+          console.log("여러 개");
+          return 1000;
+      }
+      let num = test3();
+      console.log(num);
+  </script>
+</body>
+</html>

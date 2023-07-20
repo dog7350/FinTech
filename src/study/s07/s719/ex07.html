@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let result = ( function test1 () {
+            alert("함수 작동");
+            document.write("즉시 실행");
+        } ) ();
+
+        let name = '홍길동';
+        ( function test2 (n) {
+            document.write("매개 변수 받아옴 " + name);
+        } ) (name);
+    </script>
+</body>
+</html>

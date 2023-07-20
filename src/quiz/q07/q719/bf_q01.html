@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let name = prompt("당신의 이름은?");
+        let age = prompt("당신의 나이는?");
+        let addr = prompt("당신의 주소는?");
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr><th>이름</th><th>나이</th><th>주소</th></tr>
+        </thead>
+
+        <tbody>
+            <script>
+                document.write("<tr><td>" + name + "</td><td>" + age + "</td><td>" + addr + "</td></tr>");
+                document.write(`<tr><td>${name}</td><td>${age}</td><td>${addr}</td></tr>`);
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>

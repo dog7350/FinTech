@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function test(x, y) {
+            document.write("Test1");
+        }
+        function test(x) {
+            document.write("Test2");
+        }
+        test();
+
+        function test2(x, y, z) {
+            document.write(`${x}, ${y}, ${z}<br>`);
+            if (x == undefined && y == undefined) document.write("x, y 값 없음<br>");
+        }
+
+        test2();
+        test2(10);
+        test2(10, 20);
+        test2(10, 20, 30);
+
+        function test3() {
+            document.write("<hr>");
+            document.write(arguments + "<br>");
+            document.write(arguments.length);
+            document.write("<hr>");
+        }
+        test3(10);
+        test3(10, 20, 30, 40);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

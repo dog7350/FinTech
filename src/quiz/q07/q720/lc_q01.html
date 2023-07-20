@@ -35,6 +35,7 @@
                 if (user != undefined) {
                     msg += `<tr><td>${user[0].id}</td><td>${user[0].name}</td><td>${user[0].age}</td></tr>`;
                 }
+                id.value = "";
             }
             msg += "</table>";
             view.innerHTML = msg;
@@ -43,6 +44,7 @@
         const memberDelete = () => {
             const id = document.querySelector("#deleteId");
             member = member.filter( (value) => id.value != value.id );
+            id.value = "";
             memberAll();
         }
 
@@ -51,6 +53,9 @@
             const name = document.querySelector("#insertName");
             const age = document.querySelector("#insertAge");
             member.push({"id":id.value, "name": name.value, "age":age.value});
+            id.value = "";
+            name.value = "";
+            age.value = "";
             memberAll();
         }
     </script>

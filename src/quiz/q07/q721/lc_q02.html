@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #bodyContainer {
+                margin: auto;
+                width: 300px;
+                border: 2px solid red;
+            }
+            #topContainer {
+                display: flex;
+                width: 100%;
+            }
+            #topContainer > input[type=button] {
+                width: 20%;
+                font-weight: bold;
+            }
+            #contentContainer {
+                margin: auto;
+                width: 100px;
+                height: 100px;
+                line-height: 100px;
+                font-size: 13pt;
+                font-weight: bold;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+
+        <script>
+            var cr = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple'];
+
+            const cli = () => {
+                switch (event.target.value) {
+                    case "버튼1" :
+                        creDiv("버튼 1 클릭", "gold");
+                        break;
+                    case "버튼2" :
+                        creDiv("버튼 2 클릭", "green");
+                        break;
+                    case "버튼3" :
+                        creDiv("버튼 3 클릭", "pink");
+                        break;
+                    case "자동" :
+                        autoDiv();
+                        break;
+                    case "지우기" :
+                        delDiv();
+                        break;
+                }
+            }
+            const creDiv = (name, col) => {
+                if (document.getElementById("contentContainer") != undefined) document.getElementById("contentContainer").remove();
+                const top = document.getElementById("bodyContainer");
+
+                const div = document.createElement("div");
+                div.id = "contentContainer";
+                div.style.backgroundColor = col;
+                div.innerHTML = name;
+
+                top.appendChild(div);
+            }
+            var e;
+            var d = 0;
+            var ci = 0;
+            const autoDiv = () => {
+                if (document.getElementById("contentContainer") != undefined) document.getElementById("contentContainer").remove();
+                const top = document.getElementById("bodyContainer");
+
+                const div = document.createElement("div");
+                div.id = "contentContainer";
+                div.style.margin = "auto";
+                div.style.marginTop = "30px";
+                div.style.marginBottom = "30px";
+                div.innerHTML = "자동";
+
+                top.appendChild(div);
+                e = setInterval(conDeg, 1);
+            }
+            const conDeg = () => {
+                const div = document.getElementById("contentContainer");
+                if (ci > 7) ci = 0;
+
+                if (div.style.display == "none") div.style.display = "block";
+                else div.style.display = "none";
+                div.style.backgroundColor = cr[ci];
+                div.style.transform = "rotate(" + d + "deg)";
+                ci++;
+                d++;
+            }
+            const delDiv = () => {
+                if (e != undefined) clearInterval(e);
+                if (document.getElementById("contentContainer") != undefined) document.getElementById("contentContainer").remove();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="bodyContainer">
+            <div id="topContainer">
+                <input type="button" value="버튼1" onclick="cli()" />
+                <input type="button" value="버튼2" onclick="cli()" />
+                <input type="button" value="버튼3" onclick="cli()" />
+                <input type="button" value="자동" onclick="cli()" />
+                <input type="button" value="지우기" onclick="cli()" />
+            </div>
+        </div>
+    </body>
+</html>

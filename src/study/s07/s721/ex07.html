@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    var cr = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple'];
+
+    function myFocus() {
+        document.getElementById("pw").focus();
+        var txt = document.getElementById("txt");
+        document.getElementById("copy").value = txt.value;
+    }
+
+    function myChange(t) {
+        var txt = document.getElementById("txt");
+        document.getElementById("txt").value = "";
+        document.getElementById("copy").value = "";
+
+        let m = "";
+        for (i = 1; i <= t.value.length; i++) {
+            m += `<span style="color:${cr[Math.round(Math.random() * 8, 0)]}">${t.value.charAt(i - 1)}</span>`;
+        }
+        document.getElementById("t").innerHTML = m;
+    }
+  </script>
+
+  <input type="text" id="txt"><br>
+  <input type="text" id="pw" onchange="myChange(this)"><br>
+  <input type="text" id="copy"><br>
+  <input type="button" value="클릭" onclick="myFocus()"><br>
+  <span id="t"></span>
+</body>
+</html>

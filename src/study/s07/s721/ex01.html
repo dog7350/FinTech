@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        var e;
+        var d = 0;
+        const digClock = () => {
+            var today = new Date();
+            console.log(today);
+            var time = today.getMonth() + 1 + "월 ";
+            time += today.getDate() + "일 ";
+            time += today.getHours() + "시 ";
+            time += today.getMinutes() + "분 ";
+            time += today.getSeconds() + "초 ";
+            time += today.getMilliseconds() + "ms";
+            document.getElementById("clock").innerHTML = time;
+            d++;
+            document.getElementById("clock").style.transform = "rotate(" + d + "deg)";
+            e = setTimeout(digClock, 1);
+        }
+
+        const end = () => { clearTimeout(e); }
+
+        var cnt = 0;
+        const dig = () => {
+            cnt++;
+            document.getElementById("dig").innerHTML = cnt;
+        }
+    </script>
+</head>
+<body>
+    <div id="dig"></div>
+    <button onclick="dig()">dig</button>
+
+    <div id="clock"></div>
+
+    <button onclick="digClock()">시작</button>
+    <button onclick="end()">종료</button>
+</body>
+</html>

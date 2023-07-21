@@ -1,4 +1,4 @@
-package quest.q623;
+package quiz.q06.q623;
 
 public class lcStudent {
     private String name, addr, id, pw;

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <script>
+            const check = () => {
+                const fo = document.getElementById("fo");
+                const id = document.getElementById("id");
+                const pw = document.getElementById("pw");
+                const pwC = document.getElementById("pwC");
+                if (id.value == "") {
+                    alert("아이디는 필수 입력 사항입니다.");
+                    document.getElementById("idA").style.color = "red";
+                    document.getElementById("idA").innerHTML = "(*필수 항목)";
+                    id.focus();
+                }
+                if (pw.value == "") {
+                    alert("비밀번호는 필수 입력 사항입니다.");
+                    document.getElementById("pwA").style.color = "red";
+                    document.getElementById("pwA").innerHTML = "(*필수 항목)";
+                    pw.focus();
+                }
+                if (pwC.value == "") {
+                    alert("비밀번호 확인은 필수 입력 사항입니다.");
+                    pwC.focus();
+                }
+                if (pw.value != pwC.value) {
+                    document.getElementById("pwCA").style.color = "red";
+                    document.getElementById("pwCA").innerHTML = "불일치!";
+                    pwC.focus();
+                }
+                if (id.value != "" && pw.value != "" && pw.value == pwC.value) fo.submit();
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="fo" action="lc_success.html">
+            <input id="id" type="text" placeholder="ID" required /><span id="idA"></span><br>
+            <input id="pw" type="text" placeholder="PW" required /><span id="pwA"></span><br>
+            <input id="pwC" type="text" placeholder="PW Check" required /><span id="pwCA"></span><br>
+            <input id="name" type="text" placeholder="NAME" />
+
+            <input type="button" onclick="check()" value="등록" />
+        </form>
+    </body>
+</html>

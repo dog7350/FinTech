@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function test() {
+            let id = document.getElementById("txt");
+            let fo = document.getElementById("fo");
+
+            if(id.value != "") {
+                fo.submit();
+            } else {
+                alert("값을 입력하세요.");
+            }
+        }
+    </script>
+
+    <form id="fo" action="ex09.html">
+        <input id="txt" type="text" required><br>
+        <input type="submit" onclick="test()" value="전송">
+    </form>
+
+    <input type="button" value="클릭" onclick="location.href='ex09.html'"><br>
+    <input type="button" value="클릭" onclick="test2()"><br>
+    <a href="ex09.html">이동</a>
+
+    <script>
+        function test2() {
+            location.href = "ex09.html";
+        }
+    </script>
+</body>
+</html>

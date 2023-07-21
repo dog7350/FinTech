@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+        }
+        #bodyContainer {
+            margin: auto;
+            display: flex;
+            width: 1000px;
+        }
+        #leftContainer {
+            background: lightyellow;
+            width: 620px;
+            height: 310px;
+        }
+        #rightContainer {
+            margin-left: 30px;
+            background: lightblue;
+            width: 150px;
+        }
+        #title {
+            background: red;
+            text-align: center;
+            font-size: 20pt;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        const addList = (ET) => {
+            const right = document.getElementById("rightContent");
+            const addItem = document.createElement("img");
+            addItem.src = ET.src;
+            addItem.addEventListener("click", function() {
+                const right = document.getElementById("rightContent");
+                right.removeChild(this);
+                if (right.childNodes[0] == undefined) {
+                    const title = document.getElementById("title");
+                    title.innerHTML = "목록이<br> 없습니다.";
+                    title.style.backgroundColor = "red";
+                }
+            });
+
+            if (right.childNodes[4] != undefined) right.removeChild(right.firstChild);
+            right.appendChild(addItem);
+
+            if (right.childNodes[0] != undefined) {
+                const title = document.getElementById("title");
+                title.innerHTML = "최근<br> 구입한 상품";
+                title.style.backgroundColor = "green";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="runner">
+    <script>
+        var num = 1; var mar = 10; var su = 30;
+        var size = window.screen.width - 110;
+
+        window.onload(setInterval(function () {
+            let img = document.getElementById('img');
+            num++;
+            if (num > 9) num = 1;
+
+            if (su > 0) img.style.transform = `scale(1, 1)`;
+            else img.style.transform = `scale(-1, 1)`;
+
+
+            img.src = "..\\..\\..\\resources\\images\\p" + num + ".png";
+
+            mar += su;
+            img.style.marginLeft = mar + "px";
+            if (parseInt(img.style.marginLeft.split("px")[0]) >= size || parseInt(img.style.marginLeft.split("px")[0]) <= 0) su *= -1;
+        }, 100));
+    </script>
+    <img id="img" src="..\..\..\resources\images\p1.png" style="width: 100px; height: 100px;">
+</div>
+<div id="bodyContainer">
+    <div id="leftContainer">
+        <img src="..\..\..\resources\images\최근상품01.jpg" alt="이미지" onclick="addList(this)" />
+        <img src="..\..\..\resources\images\최근상품02.jpg" alt="이미지" onclick="addList(this)" />
+        <img src="..\..\..\resources\images\최근상품03.jpg" alt="이미지" onclick="addList(this)" />
+        <img src="..\..\..\resources\images\최근상품04.jpg" alt="이미지" onclick="addList(this)" />
+        <img src="..\..\..\resources\images\최근상품05.jpg" alt="이미지" onclick="addList(this)" />
+        <img src="..\..\..\resources\images\최근상품06.jpg" alt="이미지" onclick="addList(this)" />
+        <img src="..\..\..\resources\images\최근상품07.jpg" alt="이미지" onclick="addList(this)" />
+        <img src="..\..\..\resources\images\최근상품08.jpg" alt="이미지" onclick="addList(this)" />
+    </div>
+
+    <div id="rightContainer">
+        <div id="title">목록이<br> 없습니다.</div>
+        <div id="rightContent"></div>
+    </div>
+</div>
+</body>
+</html>

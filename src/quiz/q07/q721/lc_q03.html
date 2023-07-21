@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #bodyContainer {
+                margin: auto;
+                width: 1000px;
+                border: 2px solid black;
+            }
+            #topContainer {
+                display: flex;
+            }
+            #contentContainer {
+                display: none;
+                margin: auto;
+                text-align: center;
+            }
+        </style>
+
+        <script>
+            onload = () => {
+                const top = document.getElementById("topContainer");
+                for (i = 0; i < 3; i++) {
+                    img = document.createElement("img");
+                    img.src = "..\\..\\..\\resources\\images\\car0" + (i + 1) + ".png";
+                    img.style.margin = "5px";
+                    img.width = 50;
+                    img.height = 50;
+                    img.style.cursor = "pointer";
+                    img.addEventListener("click", info);
+                    top.appendChild(img);
+                }
+            }
+            const info = () => {
+                if (document.getElementById("img") != undefined) document.getElementById("img").remove();
+                const content = document.getElementById("contentContainer");
+                content.style.display = "block";
+
+                const img = document.createElement("img");
+                img.id = "img";
+                img.src = event.target.src;
+                img.width = 500;
+                img.height = 500;
+                content.appendChild(img);
+
+                const title = document.getElementById("title");
+                title.innerHTML = event.target.src;
+            }
+            const delImg = () => {
+                if (document.getElementById("img") != undefined) document.getElementById("img").remove();
+                const content = document.getElementById("contentContainer");
+                content.style.display = "none";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="bodyContainer">
+            <div id="topContainer"></div>
+            <div id="contentContainer">
+                <input type="button" value="X" onclick="delImg()" style="float: right"/>
+                <span id="title"></span>
+                <hr>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,4 +1,4 @@
-package quest.q627;
+package quiz.q06.q627;
 
 public class lcCompany {
     private String comName, deptName, deptPosition;

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+
+      <script>
+          var list = ["..\\..\\..\\resources\\images\\최근상품01.jpg", "..\\..\\..\\resources\\images\\최근상품02.jpg",
+              "..\\..\\..\\resources\\images\\최근상품03.jpg", "..\\..\\..\\resources\\images\\최근상품04.jpg",
+              "..\\..\\..\\resources\\images\\최근상품05.jpg", "..\\..\\..\\resources\\images\\최근상품06.jpg",
+              "..\\..\\..\\resources\\images\\최근상품07.jpg", "..\\..\\..\\resources\\images\\최근상품08.jpg", ];
+
+          var e;
+          var num = 0;
+          const imgStart = () => {
+              num++;
+
+              if (num > 7) num = 0;
+
+              const img = document.getElementById("tIMG");
+              img.src = list[num];
+
+              e = setTimeout(imgStart, 500);
+          }
+
+          var d;
+          var deg = 0;
+          const imgDeg = () => {
+              deg = deg + 5;
+              const img = document.getElementById("tIMG");
+              img.style.transform = "rotate(" + deg + "deg)";
+              d = setTimeout(imgDeg, 100);
+          }
+
+          const imgStop = () => { clearTimeout(e); clearTimeout(d); }
+
+          onload(setTimeout(imgDeg, 100));
+      </script>
+  </head>
+
+  <body onload="imgStart()">
+      <div id="runner">
+          <script>
+              var num = 1; var mar = 10; var su = 30;
+              var size = window.screen.width - 110;
+
+              window.onload(setInterval(function () {
+                  let img = document.getElementById('img');
+                  num++;
+                  if (num > 9) num = 1;
+
+                  if (su > 0) img.style.transform = `scale(1, 1)`;
+                  else img.style.transform = `scale(-1, 1)`;
+
+
+                  img.src = "..\\..\\..\\resources\\images\\p" + num + ".png";
+
+                  mar += su;
+                  img.style.marginLeft = mar + "px";
+                  if (parseInt(img.style.marginLeft.split("px")[0]) >= size || parseInt(img.style.marginLeft.split("px")[0]) <= 0) su *= -1;
+              }, 100));
+          </script>
+          <img id="img" src="..\..\..\resources\images\p1.png" style="width: 100px; height: 100px;">
+      </div>
+
+      <div id="imgContainer" onmouseover="imgStop()" onmouseout="imgStart()" style="margin-top: 300px;margin-left: 300px; width: 400px; height: 400px">
+          <img id="tIMG" onmouseout="imgDeg()" src="..\..\..\resources\images\최근상품01.jpg" alt="이미지" style="width: 100%; height: 100%;"/>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var cnt = 0;
+        const add = () => {
+            let txt = document.getElementById("txt");
+            let msg = "";
+            msg += `<img id='${cnt}' src='..\\..\\..\\resources\\images\\img.jpg' width='100px' height='100px' onclick='remove(${cnt})'>`;
+            cnt++;
+            txt.insertAdjacentHTML("beforeend", msg);
+        }
+
+        const remove = (idx) => {
+            alert(idx);
+            document.getElementById(idx).remove();
+        }
+
+        const add2 = (t) => {
+            t.remove();
+        }
+    </script>
+
+    <div id="txt2"></div>
+    <button onclick="add2(this)">add2()</button>
+    <hr>
+    <div id="txt"></div>
+    <button type="button" onclick="add()">add()</button>
+</body>
+</html>

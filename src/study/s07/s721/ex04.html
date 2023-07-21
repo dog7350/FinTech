@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var img;
+    function add() {
+        img = document.createElement("img");
+        //img.src = "..\\..\\..\\resources\\images\\car01.png";
+        //img.style.height = "100px";
+        //img.width = 100;
+        img.setAttribute("src", "..\\..\\..\\resources\\images\\car01.png");
+        img.setAttribute("width", "100");
+        img.setAttribute("style", "height:100px;");
+        document.getElementById("test").appendChild(img);
+    }
+    function addTB() {
+        let table = document.createElement("table");
+        table.border = 1;
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        td1.innerHTML = "내용1"
+        let td2 = document.createElement("td");
+        td2.innerHTML = "내용2";
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        table.appendChild(tr);
+
+        document.getElementById("test").appendChild(table);
+    }
+    function remove() {
+        const test = document.getElementById("test");
+        test.removeChild(test.firstChild);
+    }
+</script>
+
+<p id="test"></p>
+<a href="#" onclick="addTB()">테이블 추가</a>
+<a href="#" onclick="add()">이미지 추가</a>
+<b onclick="remove()" style="cursor: pointer;">이미지 삭제</b>
+</body>
+</html>

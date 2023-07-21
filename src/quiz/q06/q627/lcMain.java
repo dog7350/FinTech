@@ -1,4 +1,4 @@
-package quest.q627;
+package quiz.q06.q627;
 
 /*
 회사 (회사명, 부서명, 직급[사장, 부장, 차장, 과장, 사원])

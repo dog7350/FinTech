@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        window.onload = () => {
+            const btn1 = document.getElementById("btn1");
+            const btn2 = document.getElementById("btn2");
+            const btn3 = document.getElementById("btn3");
+
+            btn1.addEventListener("click", test);
+            btn2.addEventListener("click", test);
+            btn3.addEventListener("click", () => {
+                alert("누룽~");
+                test();
+            } );
+        }
+
+        const test = () => {
+            switch ( event.target.id ) {
+                case "btn1" :
+                    alert("버튼 1");
+                    break;
+                case "btn2" :
+                    alert("버튼 2");
+                    break;
+                case "btn3" :
+                    alert("버튼 3");
+                    break;
+            }
+        }
+    </script>
+
+    <button id="btn1">클릭1</button>
+    <button id="btn2">클릭2</button>
+    <button id="btn3">클릭3</button>
+</body>
+</html>

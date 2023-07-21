@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        alert("안녕하세요");
+        let result = confirm("처음 방문???");
+        console.log(result);
+        let msg = document.getElementById("msg");
+
+        if (result) msg.value = "환영합니다.";
+        else msg.value = "다시 찾아주셔 감셔!!";
+    </script>
+
+    <p id="msg"></p>
+    <input type="button" value="click" onclick="test()">
+</body>
+</html>

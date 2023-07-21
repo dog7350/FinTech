@@ -1,4 +1,4 @@
-package quest.q619;
+package quiz.q06.q619;
 
 import java.util.*;
 

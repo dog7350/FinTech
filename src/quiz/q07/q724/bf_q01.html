@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #timer {
+                text-align: center;
+                font-weight: bold;
+                font-size: 15pt;
+            }
+            #track {
+                display: flex;
+            }
+            #runImg {
+                position: relative;
+                width: 150px;
+                height: 150px;
+            }
+        </style>
+
+        <script src="../../../common/jquery_3.7.0.js"></script>
+        <script>
+            var i = 1;
+            var left = 0;
+            var myVar;
+            var startTime;
+            var timer;
+            $( () => {
+                $("#btnRun").click( () => {
+                    startTime = new Date().getSeconds();
+                    myVar = setInterval(runImg, 100);
+                } );
+                $("#btnInit").click( () => {
+                    imgInit();
+                } );
+            } );
+
+            const runImg = () => {
+                t = new Date();
+                i++;
+                left += 15;
+                timer = t.getSeconds();
+                timer = timer - startTime;
+                timer += "." + t.getMilliseconds().toFixed(0);
+
+                if (i > 9) i = 1;
+                $("#runImg").attr("src", "..\\..\\..\\resources\\images\\p" + i + ".png");
+                $("#runImg").animate( {left : "" + left + "px"}, 100, "linear" );
+                $("#timer").text(timer);
+            }
+            const imgInit = () => {
+                left = 0;
+                $("#runImg").animate( {left : "" + left + "px"}, 100, "linear" );
+                clearInterval(myVar);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="runner">
+        <script>
+            // 개략 필요
+            var num = 1; var mar = 10; var su = 30;
+            var size = window.screen.width - 110;
+
+            $( () => {setInterval(function () {
+                num++;
+                if (num > 9) num = 1;
+
+                if (su > 0) $("#running").css( {transform : "scale(1, 1)"} );
+                else $("#running").css( {transform : "scale(-1, 1)"} );
+
+                mar += su;
+                $("#running").attr("src", "..\\..\\..\\resources\\images\\p" + num + ".png");
+
+                styleLeft = $("#running").attr("style").split(" ")[5].replace("px", "");
+                // $("#running").css( {marginLeft: "" + mar + "px"} );
+                $("#running").animate( {marginLeft : "" + mar + "px"}, 100, "linear");
+                if (parseInt(styleLeft) >= 300 || parseInt(styleLeft) <= -10) { su *= -1; }
+            }, 50) } );
+        </script>
+        <img id="running" src="..\..\..\resources\images\p1.png" style="width: 100px; height: 100px; margin-left: 0px">
+    </div>
+
+        <hr>
+        <div id="timer">준비</div>
+        <div id="track">
+            <img id="runImg" src="..\..\..\resources\images\p1.png" alt="러너" />
+        </div>
+        <hr>
+        <input id="btnRun" type="button" onclick="" value="달리기" />
+        <input id="btnInit" type="button" onclick="" value="초기화" />
+    </body>
+</html>

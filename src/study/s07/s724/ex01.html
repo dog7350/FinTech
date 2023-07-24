@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="ex01Test.js" />
+    <script src="../../../common/jquery_3.7.0.js" />
+    <script>
+        print01();
+        $(document).ready(function () {
+            console.log("jQuery 실행");
+            $(".hide").click( function() {
+                $("p").hide();
+            } );
+            $("#show").click( () => {
+                $("p").show();
+            } );
+        })
+        // window.onload = () => { console.log("aaa"); }
+    </script>
+
+    <p>이벤트 처리</p>
+    <button class="hide">메시지 삭제</button>
+    <button id="show">메시지 보기</button>
+</body>
+</html>

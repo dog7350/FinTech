@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #slide { padding: 5px; text-align: center; background: aqua; }
+        #first { display: none; background: yellow; }
+        #modal_wap {
+            display: none;
+            z-index: 0;
+            position: fixed;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4);
+        }
+        #fi {
+            z-index: 1;
+            position: fixed;
+            margin: auto;
+            top: 30px;
+            left: 0;
+            right: 0;
+            width: 300px;
+            height: 350px;
+            background: rgba(212, 244, 250, .4);
+        }
+    </style>
+
+    <script src="../../../common/jquery_3.7.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#slide").click(function() {
+                $("#first").slideToggle("slow");
+            })
+        })
+        function slideClick() {
+            $("#fi").slideDown("slow");
+            $("#modal_wap").show();
+        }
+        function slide_hide() {
+            $("#fi").slideUp("fast");
+            $("#modal_wap").hide();
+        }
+    </script>
+</head>
+<body>
+    <button onclick="slideClick()">답글달기</button>
+
+    <div id="modal_wap">
+        <div id="fi">
+            <div style="width: 250px; margin: auto; padding-top: 20px;">
+                <b>답글 작성 페이지</b><br>
+                <b>작성자 : 홍길동</b><br>
+                <b>제목</b><br><input type="text"><br>
+                <b>내용</b><br><textarea rows="5" cols="30"></textarea>
+                <hr>
+                <button type="button">답글</button>
+                <button type="button" onclick="slide_hide()">주소</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="slide">[오늘의 공지사항]</div>
+    <div id="first">첫번째 영역</div>
+</body>
+</html>

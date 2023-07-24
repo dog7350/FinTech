@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .out {width: 200px; height: 100px; border: 1px solid black; text-align: center; background: yellow;}
+    </style>
+
+    <script src="../../../common/jquery_3.7.0.js"></script>
+    <script>
+        var n = 0;
+        $().ready( () => {
+            $("div.out").mouseenter( function() {
+                $("p").first().text("<b>마우스 포인터 들어옴</b>");
+                $("p").last().text(n++);
+            } );
+            $("div.out").mouseleave( () => {
+                $("p").first().html("<b>마우스 포인터 나감</b>");
+                $("p").last().html("최종 횟수 : " + n++);
+            } );
+        } );
+    </script>
+</head>
+<body>
+    <div class="out">
+        <p>마우스 이벤트</p>
+        <p>0</p>
+    </div>
+</body>
+</html>

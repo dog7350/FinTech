@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .im {color: blue; font-size: 30pt;}
+        </style>
+
+        <script src="../../../common/jquery_3.7.0.js"></script>
+        <script>
+            function addCss() {
+                $("div").addClass("im");
+            }
+            const rmCss = () => {
+                $("div").removeClass("im");
+            }
+        </script>
+    </head>
+    <body>
+        <div>제이쿼리</div>
+        <button onclick="addCss()">css적용</button>
+        <button onclick="rmCss()">css해제</button>
+    </body>
+</html>

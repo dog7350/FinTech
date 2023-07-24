@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <script>
+            function appendVal() { $('#txt').append("내용추가<br>"); }
+            const htmlVal = () => { $('#txt').html("내용교체"); }
+            const inputVal = () => {
+                $("#val02").val( $("#val01").val() );
+                $("#val01").val("");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="txt"></div><hr>
+        <input type="text" id="val01"><br>
+        <input type="text" id="val02"><br>
+
+        <button onclick="inputVal()">input 변경</button>
+        <button onclick="appendVal()">내용 추가</button>
+        <button onclick="htmlVal()">내용 교체</button>
+    </body>
+</html>

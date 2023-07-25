@@ -1,0 +1,20 @@
+<table border="1">
+    <thead>
+        <tr>
+            <% for (i = 0; i < 4; i++) { %>
+                <th><%=context.site[0][i]%></th>
+            <% } %>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% for (i = 1; i < 4; i++) { %>
+            <tr>
+                <td><b><%=context.site[i][0]%></b></td>
+                <td><a href="<%= Object.values(context.site[i][1]) %>"><%= Object.keys(context.site[i][1]) %></a></td>
+                <td><%=context.site[i][2]%></td>
+                <td><%=context.site[i][3]%></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

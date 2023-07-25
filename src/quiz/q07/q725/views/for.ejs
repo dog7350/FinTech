@@ -1,0 +1,16 @@
+<%= console.log(name) %>
+<input type="text" value="<%=name[0]%>"><br>
+<a href="<%=name[1]%>"><%=name[1]%></a><br>
+
+<ul>
+    <% for(let i = 0; i < name.length; i++) { %>
+        <li><%=name[i]%></li> 
+    <% } %>
+</ul>
+<hr>
+<hr>
+<ul>
+    <% name.forEach( (v, i) => { %>
+        <li><%=v%></li>
+    <% } ); %>
+</ul>

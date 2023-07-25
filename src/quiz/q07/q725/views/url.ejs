@@ -1,0 +1,5 @@
+<ul>
+    <% for (i = 0; i < context.url.length; i++) { %>
+        <a href="<%=Object.values(context.url[i])%>"><%=Object.keys(context.url[i])%></a>
+    <% } %>
+</ul>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1><%= member.ID %> 정보 수정!</h1>
+        <form action="modify" method="post">
+            <input type="text" name="id", placeholder="Input ID" value="<%= member.ID %>" readonly><br>
+            <input type="text" name="pwd", placeholder="Input PWD" value="<%= member.PWD %>"><br>
+            <input type="text" name="name", placeholder="Input NAME" value="<%= member.NAME %>"><br>
+            <input type="text" name="addr", placeholder="Input ADDR" value="<%= member.ADDR %>"><br>
+            <input type="submit" value="Modify">
+        </form>
+    </body>
+</html>

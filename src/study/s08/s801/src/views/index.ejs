@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Node All</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #allContainer {
+                margin: auto;
+                width: 900px;
+                height: 500px;
+            }
+            #bodyContainer {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+            #bodySection {
+                width: 79.9999%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="allContainer">
+            <%- include("./default/header") %>
+
+            <div id="bodyContainer">
+                <section id="bodySection">
+                    <% if (url == "/") { %>
+                        <h1>기본 페이지 입니다.</h1>
+                    <% } else if (url == "/loginForm") { %>
+                        <%- include("member/login") %>
+                    <% } else if (url == "/list") { %>
+                        <%- include("member/list") %>
+                    <% } else if (url == "/joinForm") { %>
+                        <%- include("member/join") %>
+                    <% } else if (url == "/info") { %>
+                        <%- include("member/info") %>
+                    <% } else if (url == "/modify") { %>
+                        <%- include("member/modify") %>
+                    <% } %>
+                </section>
+                <%- include("./default/sideMenu") %>
+            </div>
+
+            <%- include("./default/footer") %>
+        </div>
+    </body>
+</html>

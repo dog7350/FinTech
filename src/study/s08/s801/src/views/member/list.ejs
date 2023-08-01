@@ -1,0 +1,21 @@
+<style>
+    table { margin: auto; border: 2px solid aqua; border-collapse: collapse; }
+    tr, td, th { border: 1px solid pink; }
+</style>
+
+<table>
+    <thead>
+        <th>아이디</th><th>비밀번호</th><th>이름</th><th>주소</th>
+    </thead>
+
+    <tbody>
+        <% list.forEach( (u) => { %>
+            <tr>
+                <td><%= u.ID %></td>
+                <td><%= u.PWD %></td>
+                <td><a href="/member/info/<%= u.ID %>"><%= u.NAME %></a></td>
+                <td><%= u.ADDR %></td>
+            </tr>
+        <% } ) %>
+    </tbody>
+</table>

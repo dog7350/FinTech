@@ -1,0 +1,41 @@
+<style>
+    #headerContainer {
+        display: flex;
+        width: 100%;
+        background-color: rgb(255, 255, 204);
+    }
+    #nav {
+        margin-right: 10px;
+        width: 79.9999%;
+        font-weight: bold;
+        font-size: 20pt;
+    }
+    #info {
+        width: 19.9999%;
+    }
+</style>
+
+<header>
+    <div id="headerContainer">
+        <nav id="nav">
+            <a href="/">HOME</a>
+            <% if (user == undefined) { %>
+            <a href="/member/loginForm">로그인</a>
+            <a href="/member/joinForm">회원가입</a>
+            <% } else { %>
+            <a href="/member/logout">로그아웃</a>
+            <a href="/member/memberList">회원정보</a>
+            <% } %>
+        </nav>
+
+        <div id="info">
+            <% if (user == undefined) { %>
+            로그인하세요.
+            <% } else { %>
+                <%= user.ID %>(<%= user.NAME %>) 님 환영!<br>
+                안녕히가세요.
+            <% } %>
+        </div>
+    </div>
+</header>
+<hr>

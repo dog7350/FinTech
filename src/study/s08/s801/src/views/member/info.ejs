@@ -6,12 +6,12 @@
 </style>
 
 <div id="infoContainer">
-    <h1><%= info.ID %>님의 개인 정보</h1>
-    I D : <%= info.ID %><br>
-    P W : <%= info.PWD %><br>
-    이름 : <%= info.NAME %><br>
-    주소 : <%= info.ADDR %> <br>
-    <a href="/member/modifyForm/<%= info.ID %>">수정</a>
-    <a href="/member/delete/<%= info.ID %>">삭제</a>
+    <h1><%= obj.ID %>님의 개인 정보</h1>
+    I D : <%= obj.ID %><br>
+    P W : <%= obj.PWD %><br>
+    이름 : <%= obj.NAME %><br>
+    주소 : <%= obj.ADDR %> <br>
+    <a href="/member/modifyForm/<%= obj.ID %>">수정</a>
+    <a href="/member/delete/<%= obj.ID %>">삭제</a>
     <a href="/member/memberList">목록</a>
 </div>

@@ -1,7 +1,11 @@
 const ser = require("../../service/member/member_service");
 
+const ejsViewRender = (req, res, url, obj) => {
+    res.render("index", { url, user: req.session.user, obj });
+}
+
 const loginForm = (req, res) => {
-    res.render("index", { url: "/loginForm", user: req.session.user })
+    ejsViewRender(req, res, "/loginForm", null);
 }
 const login = async (req, res) => {
     let result = await ser.login(req.body);
@@ -26,11 +30,11 @@ const memberList = async (req, res) => {
 
     let list = await ser.getList();
 
-    res.render("index", { url: "/list", user: req.session.user, list });
+    ejsViewRender(req, res, "/list", list);
 }
 
 const joinForm = (req, res) => {
-    res.render("index", { url: "/joinForm", user: req.session.user });
+    ejsViewRender(req, res, "/joinForm", null);
 }
 const join = async (req, res) => {
     let result = await ser.join(req.body);
@@ -41,7 +45,7 @@ const join = async (req, res) => {
 const info = async (req, res) => {
     let result = await ser.info(req.param("id"));
 
-    res.render("index", { url: "/info", user: req.session.user, info: result })
+    ejsViewRender(req, res, "/info", result);
 }
 
 const delMember = async (req, res) => {
@@ -65,7 +69,7 @@ const delMember = async (req, res) => {
 const modifyForm = async (req, res) => {
     let result = await ser.info(req.param("id"));
 
-    res.render("index", { url: "/modify", user: req.session.user, info: result });
+    ejsViewRender(req, res, "/modify", result);
 }
 
 const modify = async (req, res) => {

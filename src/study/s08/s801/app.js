@@ -12,6 +12,7 @@ app.use(session( sessionConfig.sessionConfig ));
 app.use(bodyParser.urlencoded( {extended : true} ));
 const router = require("./src/routers/router")(app);
 
+app.use(express.static("public"));
 app.use("/", router);
 
 app.listen(3000, () => { console.log("Server Starting...") } );

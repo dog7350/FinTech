@@ -6,9 +6,9 @@
 </style>
 
 <form id="fo" action="/member/modify" method="post">
-    I D : <input type="text" name="id" placeholder="Input ID" value="<%= info.ID %>" readonly><br>
-    P W : <input type="password" name="pw" placeholder="Input PW" value="<%= info.PWD %>" required><br>
-    이름 : <input type="text" name="name" placeholder="Input NAME" value="<%= info.NAME %>" required><br>
-    주소 : <input type="text" name="addr" placeholder="Input ADDR" value="<%= info.ADDR %>" required><br>
+    I D : <input type="text" name="id" placeholder="Input ID" value="<%= obj.ID %>" readonly><br>
+    P W : <input type="password" name="pw" placeholder="Input PW" value="<%= obj.PWD %>" required><br>
+    이름 : <input type="text" name="name" placeholder="Input NAME" value="<%= obj.NAME %>" required><br>
+    주소 : <input type="text" name="addr" placeholder="Input ADDR" value="<%= obj.ADDR %>" required><br>
     <input type="submit" value="정보수정">
 </form>

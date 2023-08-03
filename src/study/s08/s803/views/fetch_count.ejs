@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            async function test() {
+                const res = await fetch("/get_count"); // await을 사용하지 않을 경우 Promise (처리중)
+                console.log( res );
+                const data = await res.json();
+                console.log( data );
+                document.getElementById("cnt").innerHTML = data.cnt;
+                /* async & awiat을 사용하지 않는 경우
+                fetch("/get_count")
+                .then ( res => { 
+                    console.log(res);
+                    return res.json();
+                } )
+                .then( data => {
+                    console.log("data : " + data.cnt);
+                    document.getElementById("cnt").innerHTML = data.cnt;
+                } )
+                */
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>일</h1>
+        <h1>일</h1>
+        <h1>일</h1>
+        <h1>일</h1>
+        <h1>일</h1>
+        <h1>일</h1>
+        <h1>일</h1>
+        <button onclick="test()">클릭</button>
+        <label id="cnt"> 0 </label>
+    </body>
+</html>

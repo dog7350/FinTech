@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            const loadMember = () => {
+                let content = document.getElementById("content");
+
+                fetch("/read_member", { method : "get" })
+                .then( res => res.json() )
+                .then( data => {
+                    console.log(data);
+                    msg = "ID\t\tNAME\t\tADDRESS<br>";
+                    data.forEach( u => {
+                        msg += u.id + "\t\t";
+                        msg += u.name + "\t\t";
+                        msg += u.addr + "<br>";
+                    });
+                    content.innerHTML = msg;
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="content"></div>
+        <hr>
+        <input type="button" value="3명씩 더 보기" onclick="loadMember()">
+    </body>
+</html>

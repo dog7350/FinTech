@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            function check_id() {
+                fId = document.getElementById("fId").value;
+                stSpan = document.getElementById("statusSpan");
+
+                if (fId.length <= 0) stSpan.innerHTML = "ID 확인";
+                else if (fId.length <= 2) stSpan.innerHTML = "길이가 짧습니다. 3글자 이상!";
+                else {
+                    fetch("/check_id?fId=" + fId, { method : "get" })
+                    .then( res => res.json() )
+                    .then( data => {
+                        if (data.length == 0) stSpan.innerHTML = "가입 가능한 ID";
+                        else stSpan.innerHTML = "존재하는 ID 입니다.";
+                    });
+                }
+            }
+            const register = () => {
+                const arr = $('#form').serializeArray();
+
+                let data = {}
+
+                arr.forEach( d => { data[d.name] = d.value; });
+
+                fetch("/register", { 
+                    method : "post",
+                    headers : {"Content-Type" : "application/json"}, // 전송하는 데이터의 타입 
+                    body : JSON.stringify(data) // 전송하는 데이터 및 형변환 (data는 Object, Json은 문자열)
+                })
+                .then( res => res.json() )
+                .then( result => {
+                    if (result == 1) {
+                        alert("회원 가입 성공");
+                        location.href = "/";
+                    }
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="form" method="post">
+            <input type="text" id="fId" name="id" placeholder="Input ID" oninput="check_id()">&nbsp;
+            <span id="statusSpan">ID 확인</span><br>
+            <input type="text" name="pw" placeholder="Input PW"><br>
+            <input type="text" name="name" placeholder="Input NAME"><br>
+            <input type="text" name="addr" placeholder="Input ADDR"><br>
+            <input type="button" onclick="register()" value="등록">
+        </form>
+    </body>
+</html>

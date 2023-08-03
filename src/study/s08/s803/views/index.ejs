@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <title>Document</title>
+
+        <script>
+            let content;
+            window.onload = () => {
+                content = document.getElementById("content");
+                const getMembers = document.querySelector("#getMembers");
+                getMembers.addEventListener("click", getMember);
+                const registerView = document.querySelector("#registerView");
+                registerView.addEventListener("click", regView);
+            }
+
+            const getMember = () => {
+                // alert("get 함수 호출");
+                fetch("/get_members", { method : "get" })
+                .then( res => res.json() )
+                .then( data => {
+                    let msg = "<table border='1'>";
+                    msg += "<tr><th>아이디</th><th>이름</th><th>주소</th></tr>";
+                    for (i = 0; i < data.length; i++) {
+                        msg += "<tr>";
+                        
+                        msg += `<td>${data[i].id}</td><td>${data[i].name}</td><td>${data[i].addr}</td>`;
+                        
+                        msg += "</tr>";
+                    }
+                    msg += "</table>";
+
+                    content.innerHTML = msg;
+                })
+            }
+
+            const register = () => {
+                // alert("register");
+                // console.log( document.getElementsByName('id').value );
+                const arr = $('#form').serializeArray();
+                console.log(arr);
+                console.log(arr[0].name);
+                console.log(arr[0].value);
+
+                let data = {}
+                /*
+                data[arr[0].name] = arr[0].value;
+                data[arr[1].name] = arr[1].value;
+                data[arr[2].name] = arr[2].value;
+                data[arr[3].name] = arr[3].value;
+                */
+
+                // for(var i = 0; i < arr.length; i++) ata[arr[i].name] = arr[i].value;
+
+                arr.forEach( d => { data[d.name] = d.value; });
+
+                fetch("/register", { 
+                    method : "post",
+                    headers : {"Content-Type" : "application/json"}, // 전송하는 데이터의 타입 
+                    body : JSON.stringify(data) // 전송하는 데이터 및 형변환 (data는 Object, Json은 문자열)
+                })
+                .then( res => res.json() )
+                .then( result => {
+                    if (result == 1) {
+                        alert("회원 가입 성공");
+                        getMember();
+                    }
+                });
+            }
+            const regView = () => {
+                let msg = `<form id="form" method="post">
+                                <input type="text" name="id" placeholder="Input ID"><br>
+                                <input type="text" name="pw" placeholder="Input PW"><br>
+                                <input type="text" name="name" placeholder="Input NAME"><br>
+                                <input type="text" name="addr" placeholder="Input ADDR"><br>
+                                <input type="button" onclick="register()" value="등록">
+                            </form>`;
+                content.innerHTML = msg;
+            }
+
+            const del = () => {
+                const delId = document.getElementById("del_id");
+                fetch("/delete", {
+                    method : "delete",
+                    headers : {"Content-Type" : "application/json"},
+                    body : JSON.stringify({ id : delId.value })
+                })
+                .then( res => res.json() )
+                .then( result => {
+                    if (result == 1) getMember();
+                })
+            }
+
+            function search() {
+                fetch("/search?id=" + $("#s_id").val(), { method : "get" }) // "/search/" + $("#s_id")
+                .then( res => res.json() )
+                .then( data => {
+                let msg = "<table border='1'>";
+                        msg += "<tr><th>아이디</th><th>이름</th><th>주소</th></tr>";
+                        msg += `<tr><td>${data[0].id}</td><td>${data[0].name}</td><td>${data[0].addr}</td></tr>`;
+                    msg += "</table>";
+
+                    content.innerHTML = msg;
+                })
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>제목!</h1>
+        <hr>
+        <div id="content"></div>
+        <hr>
+        <button type="button" id="getMembers">목록보기</button>
+        <button type="button" id="registerView">데이터 추가</button><br><br>
+        <a href="/register_view">회원가입</a>&nbsp;
+        <a href="/view_member">멤버보기</a>
+        <hr>
+        <input  type="text" id="del_id">
+        <button type="button" onclick="del()">삭제</button>
+        <hr>
+        <input  type="text" id="s_id">
+        <button type="button" onclick="search()">조회</button>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <% files.forEach( (item) => { %>
+            <img src="/file/download/<%= item %>" width="100px" height="100px">
+            <a href="/file/download/<%= item %>"><%= item %></a><br>
+            <a href="/file/deleteFile/<%= item %>">삭제</a>
+            <a href="/file/modify_form/<%= item %>">수정</a>
+            <hr>
+            <br>
+        <% }); %>
+        <a href="/file">file_index 이동</a>
+    </body>
+</html>
